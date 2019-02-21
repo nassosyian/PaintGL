@@ -3,6 +3,8 @@ PaintGL, a realtime PBR 3D painting web-app with built-in support for pressure-s
 Written on the spring of 2018 using [regl](https://github.com/regl-project/regl) as an expolaration of the limits of webgl (1) on desktop devices.  
 It was not designed (or tested) for mobile devices, so it _might_ work on high-end tablets but don't count on it.
 
+![preview](https://raw.githubusercontent.com/nassosyian/PaintGL/master/img/preview.jpg)
+
 ## Installation
 
 >		npm install  

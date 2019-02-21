@@ -1,0 +1,27 @@
+{
+    "presets": [
+        "@babel/preset-env",
+        "@vue/app",
+        // "env",
+    ],
+    "plugins": [
+        ["lodash"],
+        ["transform-async-to-generator"],
+        ["transform-imports", {
+            "vuetify": {
+                "transform": "vuetify/es5/components/${member}",
+                "preventFullImport": true
+            }
+        }],
+        ["glslify"],
+        ["transform-object-rest-spread"],
+        ["babel-plugin-inline-import", {
+            "extensions": [
+                ".txt",
+                ".frag",
+                ".vert",
+                ".glsl"
+            ]
+        }],
+    ]
+}

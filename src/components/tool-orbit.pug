@@ -1,0 +1,28 @@
+v-card
+	v-card-title(primary-title) 
+		//- .headline Orbit / Pan / Zoom
+		v-list(two-line subheader)
+			v-list-tile(avatar)
+				v-list-tile-content
+					v-list-tile-title Orbit
+					v-list-tile-sub-title click & drag
+			v-list-tile(avatar)
+				v-list-tile-content
+					v-list-tile-title Pan
+					v-list-tile-sub-title hold #[strong SHIFT] + click & drag
+			v-list-tile(avatar)
+				v-list-tile-content
+					v-list-tile-title Zoom
+					v-list-tile-sub-title hold (SHIFT) #[strong CTRL] + click & drag
+					//- v-list-tile-sub-title hold #[strong SHIFT+CTRL] + click-drag for greater speed
+			v-list-tile(avatar)
+				v-list-tile-content
+					v-list-tile-title Rotate
+					v-list-tile-sub-title hold #[strong ALT] + click & drag
+			v-list-tile(avatar)
+				v-list-tile-content
+					v-list-tile-title UV Map
+					v-list-tile-sub-title hold #[strong ~] 
+			v-list-tile(avatar)
+				v-list-tile-content
+					p.caption.grey--text * when you choose this tool, the brush-stroke undo-stack is merged into one texture undo.

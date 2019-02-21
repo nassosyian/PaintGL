@@ -1,0 +1,37 @@
+drop-file.spotlight-img-drop( :enableClick="true" ref="spotlightImgArea" types=".png,.jpg,.jpeg" eventname="droppedSpotlight")
+	.drop-area
+		img(v-if="spotlightImgSrc!=null" :src="spotlightImgSrc" style="height: auto;width:100%")
+		.icon()
+
+v-layout(v-if="spotlightImgSrc!=null" column center)
+	v-layout(row justify-space-around)
+		v-btn-toggle(v-model="spotlightTool")
+			v-btn(flat title="add warp point" v-tippy)
+				span.tool-icon.icon-pen-add
+			v-btn(flat title="remove warp point" v-tippy)
+				span.tool-icon.icon-pen-remove
+			v-btn(flat title="move warp point" v-tippy)
+				span.tool-icon.icon-pen-edit
+
+	//- v-spacer
+	v-layout(row  justify-space-around)
+		v-btn(flat) Reset
+
+	v-card
+		v-card-title(primary-title) 
+			//- .headline Orbit / Pan / Zoom
+			v-list(two-line subheader)
+				v-list-tile(avatar)
+					v-list-tile-content
+						v-list-tile-title Pan
+						v-list-tile-sub-title hold #[strong SHIFT] + click & drag
+				v-list-tile(avatar)
+					v-list-tile-content
+						v-list-tile-title Zoom
+						v-list-tile-sub-title hold (SHIFT) #[strong CTRL] + click & drag
+						//- v-list-tile-sub-title hold #[strong SHIFT+CTRL] + click-drag for greater speed
+				v-list-tile(avatar)
+					v-list-tile-content
+						v-list-tile-title Rotate
+						v-list-tile-sub-title hold #[strong ALT] + click & drag
+				

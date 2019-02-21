@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 975 1295" style="enable-background:new 0 0 975 1295;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#DDDDDD;stroke-width:27;stroke-linejoin:round;stroke-dasharray:40.3537,30.2653;}
+	.st1{fill:#37404D;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:15;stroke-miterlimit:10;}
+	.st3{enable-background:new    ;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:none;stroke:#37404D;stroke-width:15;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#37404D;stroke-width:14;stroke-miterlimit:10;}
+</style>
+<g id="drop">
+	<g id="area">
+		<path class="st0" d="M721,375.9h166.1c40.7,0,73.8,33,73.8,73.8v557.4c-0.1,40.7-33.1,73.7-73.8,73.7H87.3
+			c-40.7,0-73.8-33-73.8-73.8V449.7c0-40.7,33-73.8,73.8-73.8H287"/>
+	</g>
+</g>
+<g id="file">
+	<path class="st1" d="M676.7,281.9L579.8,185h-15.2H559H312.4v499.8h364.4L676.7,281.9L676.7,281.9z M579.8,214.5l57.2,57.2h-57.2
+		V214.5z M333.2,664V205.8H559v86.6h97V664H333.2L333.2,664z"/>
+	<path id="MousePointer" class="st2" d="M622.8,616.9L795,700l-62.8,25.6l62,69.8l-21,18.7L712,742.9l-32.1,57.6L622.8,616.9z"/>
+	<g id="type">
+		<rect x="330" y="409.9" class="st1" width="223" height="107"/>
+		<g class="st3">
+			<path class="st4" d="M352.2,493v-8.5h8.5v8.5H352.2z"/>
+			<path class="st4" d="M375.1,493v-60.8h41v7.2h-33v18.8h28.6v7.2h-28.6V493H375.1z"/>
+			<path class="st4" d="M426.3,493v-60.8h22.8c4.6,0,8.4,0.6,11.2,1.8c2.8,1.2,5,3.1,6.6,5.7c1.6,2.6,2.4,5.2,2.4,8
+				c0,2.6-0.7,5-2.1,7.3c-1.4,2.3-3.5,4.2-6.4,5.6c3.7,1.1,6.5,2.9,8.5,5.5c2,2.6,3,5.7,3,9.2c0,2.9-0.6,5.5-1.8,7.9
+				c-1.2,2.4-2.7,4.3-4.5,5.7c-1.8,1.3-4,2.3-6.7,3c-2.7,0.7-5.9,1-9.8,1H426.3z M434.3,457.7h13.2c3.6,0,6.1-0.2,7.7-0.7
+				c2-0.6,3.6-1.6,4.6-3c1-1.4,1.6-3.2,1.6-5.3c0-2-0.5-3.8-1.5-5.3c-1-1.5-2.4-2.6-4.2-3.2c-1.8-0.6-4.9-0.9-9.3-0.9h-12.2V457.7z
+				 M434.3,485.8h15.1c2.6,0,4.4-0.1,5.5-0.3c1.9-0.3,3.4-0.9,4.6-1.7c1.2-0.8,2.3-1.9,3.1-3.4c0.8-1.5,1.2-3.2,1.2-5.1
+				c0-2.3-0.6-4.2-1.7-5.9c-1.2-1.7-2.8-2.8-4.8-3.5c-2.1-0.7-5-1-8.9-1h-14.1V485.8z"/>
+			<path class="st4" d="M477.1,493l23.5-31.7l-20.8-29.1h9.6l11,15.6c2.3,3.2,3.9,5.7,4.9,7.5c1.4-2.2,3-4.5,4.8-6.9l12.2-16.1h8.8
+				l-21.4,28.7l23,32.2h-10l-15.3-21.7c-0.9-1.2-1.7-2.6-2.7-4.1c-1.4,2.2-2.3,3.7-2.9,4.6L486.8,493H477.1z"/>
+		</g>
+	</g>
+	<line class="st5" x1="444.6" y1="156.4" x2="442.3" y2="0.1"/>
+	<line class="st6" x1="398.5" y1="158" x2="398.5" y2="53.7"/>
+	<line class="st6" x1="494.6" y1="110.3" x2="494.6" y2="158"/>
+</g>
+</svg>

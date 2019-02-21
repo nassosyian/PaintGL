@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "ES6"
+	},
+	"exclude": [
+		".git",
+		"public",
+		"node_modules",
+		"**/node_modules/*",
+		"**/*-old/*"
+	]
+}

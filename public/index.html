@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta name="description" content="PaintGL, a realtime PBR 3D painting web-app.">
+	<meta name="keyword" content="webgl, pbr, paint, painting, realtime painting, 3D, vuejs, regl, threejs">
+	<meta property="og:image" content="img/thumbnail.jpg">
+	<meta name="twitter:image" content="img/thumbnail.jpg">
+	<link rel=icon type=image/png sizes=48x48 href=/img/favicon-48.png>
+	<link rel=icon type=image/png sizes=32x32 href=/img/favicon-32.png>
+	<link rel=icon type=image/png sizes=16x16 href=/img/favicon-16.png>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel="stylesheet">
+	<link href='css/fonts/material-icons.css' rel="stylesheet">
+	<link href='css/vuetify.min.css' rel="stylesheet">
+	<link href='css/tippy.min.css' rel="stylesheet">
+	<title>PaintGL</title>
+	<!-- Hotjar Tracking Code for http://www.nassosyian.net -->
+	<script>
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:251343,hjsv:6};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+</head>
+
+<body>
+	<noscript>
+	  <strong>We're sorry but PaintGL doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+	</noscript>
+	<div id="nowebgl" style="display:none;font-family: sans-serif;padding: 2em;height: 100vh;flex-direction: column;align-items: center;justify-content: center;
+	background-color: #565656;
+	color: transparent;
+	text-shadow: 2px 2px 3px rgba(255,255,255,0.5);
+	-webkit-background-clip: text;
+	   -moz-background-clip: text;
+			background-clip: text;">
+		<h1>This browser/device does not support the WebGL features needed.</h1>
+		<p></p>
+		<h1><b>PaintGL</b> runs on <a href="https://www.google.com/chrome/"  rel="external nofollow">Chrome</a> or <a href="https://www.mozilla.org/en-US/firefox/"  rel="external nofollow">Firefox</a> on desktop-class computers.</h1>
+	</div>
+	<script type="text/javascript">
+		window._supportsWebgl = false;
+		window._baseUrl = window.location.href;
+		if (_baseUrl.slice(-1) != '/') window._baseUrl += '/';
+		function detectWebGLContext () {
+			var canvas = document.createElement("canvas");
+			var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+			if (gl && gl instanceof WebGLRenderingContext) {
+				window._supportsWebgl = true;
+			} else 
+			{
+				var exts = ['angle_instanced_arrays', 
+							'oes_element_index_uint',
+							'EXT_frag_depth',
+							'OES_standard_derivatives',
+							'EXT_shader_texture_lod',
+							'WEBGL_draw_buffers', 
+							'OES_texture_half_float', 
+							'OES_texture_float',
+							'oes_texture_float_linear',
+							'WEBGL_depth_texture'
+							];
+				if (exts.map && exts.reduce)
+				{
+					window._supportsWebgl = exts
+						.map(function(item){return gl.getExtension(item);})
+						.reduce(function(accum, val){ return !!accum && !!val; });
+				}
+				else
+					window._supportsWebgl = false;
+
+			}
+			if (navigator.userAgent.indexOf("Trident")>-1)
+			{
+				var el = document.getElementById('nowebgl');
+				el.style.color = '';
+				el.style.backgroundColor = '';
+				window._supportsWebgl = false;
+			} 
+			if (!window._supportsWebgl)
+			{
+				var el = document.getElementById('nowebgl');
+				el.style.display = 'flex';
+			}
+		}
+		detectWebGLContext();
+	</script>
+	<div id="start"></div>
+	<div id="assets" style="display:none;"></div>
+	<!-- built files will be auto injected -->
+</body>
+
+</html>

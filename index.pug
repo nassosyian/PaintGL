@@ -1,0 +1,68 @@
+doctype html
+html
+	head
+		title PaintGL
+		link(href="sass/styles.sass" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet")
+		link(href="css/fonts/material-icons.css" rel="stylesheet")
+		link(href="css/vuetify.min.css" rel="stylesheet")
+		link(href="css/tippy.min.css" rel="stylesheet")
+		
+	body
+		noscript
+			#[strong We're sorry but PaintGL doesn't work properly without JavaScript enabled. Please enable it to continue.]
+		#nowebgl(style="display:none;font-family: sans-serif;padding: 2em;height: 100vh;flex-direction: column;align-items: center;justify-content: center;background-color: #565656;color: transparent;text-shadow: 2px 2px 3px rgba(255,255,255,0.5);-webkit-background-clip: text;-moz-background-clip: text;background-clip: text;")
+			h1 This browser/device does not support the WebGL features needed.
+			p  
+			h1 PaintGL runs on #[a(href="https://www.google.com/chrome/" rel="external nofollow") Chrome] or #[a(href="https://www.mozilla.org/en-US/firefox/" rel="external nofollow") Firefox] on desktop-class computers.
+		script(type="text/javascript").
+			window._supportsWebgl = false;
+			function detectWebGLContext () {
+				var canvas = document.createElement("canvas");
+				var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+				if (gl && gl instanceof WebGLRenderingContext) {
+					window._supportsWebgl = true;
+				} else 
+				{
+					var exts = ['angle_instanced_arrays', 
+								'oes_element_index_uint',
+								'EXT_frag_depth',
+								'OES_standard_derivatives',
+								'EXT_shader_texture_lod',
+								'WEBGL_draw_buffers', 
+								'OES_texture_half_float', 
+								'OES_texture_float',
+								'oes_texture_float_linear',
+								'WEBGL_depth_texture'
+								];
+					if (exts.map && exts.reduce)
+					{
+						window._supportsWebgl = exts
+							.map(function(item){return gl.getExtension(item);})
+							.reduce(function(accum, val){ return !!accum && !!val; });
+					}
+					else
+						window._supportsWebgl = false;
+
+				}
+				if (navigator.userAgent.indexOf("Trident")>-1)
+				{
+					var el = document.getElementById('nowebgl');
+					el.style.color = '';
+					el.style.backgroundColor = '';
+					window._supportsWebgl = false;
+				} 
+				if (!window._supportsWebgl)
+				{
+					var el = document.getElementById('nowebgl');
+					el.style.display = 'flex';
+				}
+			}
+			detectWebGLContext();
+		
+		#start
+
+		#assets(style="display:none;")
+
+		// script(type='text/javascript' src='js/html2canvas.min.js')
+		script(src='src/index.js' type='text/javascript')

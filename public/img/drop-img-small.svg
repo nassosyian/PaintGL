@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#DDDDDD;stroke-width:27;stroke-linejoin:round;stroke-dasharray:40.3537,30.2653;}
+	.st1{fill:#37404D;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+	.st4{font-family:'ArialMT';}
+	.st5{font-size:60.518px;}
+	.st6{font-size:57px;}
+	.st7{fill:none;stroke:#37404D;stroke-width:15;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#37404D;stroke-width:14;stroke-miterlimit:10;}
+	.st9{font-size:55px;}
+</style>
+<g id="drop">
+	<g id="area">
+		<path class="st0" d="M542.2,586H61.5c-24.5,0-44.3-26.8-44.3-59.8V74.4c0-33,19.8-59.8,44.3-59.8h480.6
+			c24.5,0,44.3,26.8,44.3,59.8v451.8C586.4,559.2,566.6,586,542.2,586z"/>
+	</g>
+</g>
+<g id="file">
+	<path class="st1" d="M436.3,238.2l-69-69h-10.8h-4H176.9V525h259.4V238.2L436.3,238.2z M367.3,190.2l40.7,40.7h-40.7V190.2z
+		 M191.7,510.3V184h160.8v61.7h69v264.6L191.7,510.3L191.7,510.3z"/>
+	<path id="MousePointer" class="st2" d="M397.9,459.7l90.6,43.7l-33,13.5l32.6,36.7l-11,9.8L444.8,526l-16.9,30.3L397.9,459.7z"/>
+	<g id="type">
+		<rect x="189.4" y="279.3" class="st1" width="158.8" height="76.2"/>
+		<text transform="matrix(1 0 0 1 199.7515 338.5001)" class="st3 st4 st5">.</text>
+		<text transform="matrix(1 0 0 1 216.5515 338.5001)" class="st3 st4 st6">JPG</text>
+	</g>
+	<line class="st7" x1="271" y1="148.9" x2="269.4" y2="37.6"/>
+	<line class="st8" x1="238.2" y1="150" x2="238.2" y2="75.7"/>
+	<line class="st8" x1="306.6" y1="116" x2="306.6" y2="150"/>
+	<g id="type_1_">
+		<rect x="191.4" y="377.3" class="st1" width="158.8" height="76.2"/>
+		<text transform="matrix(1 0 0 1 201.7515 436.5001)" class="st3 st4 st5">.</text>
+		<text transform="matrix(1 0 0 1 218.5515 436.5001)" class="st3 st4 st9">PNG</text>
+	</g>
+</g>
+</svg>

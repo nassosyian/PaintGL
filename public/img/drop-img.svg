@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 975 750" style="enable-background:new 0 0 975 750;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#DDDDDD;stroke-width:27;stroke-linejoin:round;stroke-dasharray:40.3537,30.2653;}
+	.st1{fill:#37404D;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:6;stroke-miterlimit:10;}
+	.st3{enable-background:new    ;}
+	.st4{fill:#FFFFFF;}
+	.st5{font-family:'ArialMT';}
+	.st6{font-size:60.518px;}
+	.st7{font-size:57px;}
+	.st8{fill:none;stroke:#37404D;stroke-width:15;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#37404D;stroke-width:14;stroke-miterlimit:10;}
+	.st10{font-size:55px;}
+</style>
+<g id="drop">
+	<g id="area">
+		<path class="st0" d="M887.1,730.8H87.3c-40.7,0-73.8-33-73.8-73.8V99.7c0-40.7,33-73.8,73.8-73.8h799.8c40.7,0,73.8,33,73.8,73.8
+			v557.4C960.8,697.8,927.8,730.8,887.1,730.8z"/>
+	</g>
+</g>
+<g id="file">
+	<path class="st1" d="M623.8,290.2l-69-69H544h-4H364.4v355.8h259.4L623.8,290.2L623.8,290.2z M554.8,242.2l40.7,40.7h-40.7V242.2z
+		 M379.2,562.3V236H540v61.7H609v264.6H379.2L379.2,562.3z"/>
+	<path id="MousePointer" class="st2" d="M585.4,528.7l90.6,43.7l-33,13.5l32.6,36.7l-11,9.8L632.3,595l-16.9,30.3L585.4,528.7z"/>
+	<g id="type">
+		<rect x="376.9" y="331.3" class="st1" width="158.8" height="76.2"/>
+		<text transform="matrix(1 0 0 1 387.2515 390.5001)" class="st3"><tspan x="0" y="0" class="st4 st5 st6">.</tspan><tspan x="16.8" y="0" class="st4 st5 st7">JPG</tspan></text>
+	</g>
+	<line class="st8" x1="458.5" y1="200.9" x2="456.9" y2="89.6"/>
+	<line class="st9" x1="425.7" y1="202" x2="425.7" y2="127.7"/>
+	<line class="st9" x1="494.1" y1="168" x2="494.1" y2="202"/>
+	<g id="type_1_">
+		<rect x="378.9" y="429.3" class="st1" width="158.8" height="76.2"/>
+		<text transform="matrix(1 0 0 1 389.2515 488.5001)" class="st3"><tspan x="0" y="0" class="st4 st5 st6">.</tspan><tspan x="16.8" y="0" class="st4 st5 st10">PNG</tspan></text>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,122 @@
+//- v-expansion-panel-content(expand="true")
+div(slot="header") Color
+
+v-card.px-2.py-2
+	v-layout.stroke-preview-wrapper(column)
+		canvas#paint-stroke-preview.stroke-preview(width="320" height="140" ref="strokePreview" 				:class="{invisible: activeToolName=='stamp'}")
+		v-layout.stamp-overlay(row :class="{visible: activeToolName=='stamp'}")
+			.stamp-wrapper
+				.stamp(:style="{backgroundImage: 'url('+(activeBrushStamp ? activeBrushStamp.img.src : '')+')'}"  )
+			v-layout(column).buttons
+				v-btn(@click="showBrushStrokePresetDialog" color="primary") Presets
+				v-btn(@click="showBrushImageDialog" color="primary") Brush Img
+		
+v-card.px-2.py-2.mx-auto(v-if="activeToolName!='smear' && !showIntensitySlider")
+	//- the color *NEEDS* a v-model, otherwise it crashes
+	color-picker(v-model="currentColor" ref="colorWidget")
+v-card.px-2.py-2(v-if="showIntensitySlider")
+	v-layout(row)
+		.label 
+			span Intensity:  
+			span.range(v-if="!editingBrushIntensity" @click="()=>{editingBrushIntensity = true}") {{ brushIntensity }} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushIntensityInput" suffix="%" :rules="[isNumber]" @change="clampBrushIntensity" @keyup.enter="(e)=>{clampBrushIntensity(e.target.value); editingBrushIntensity = false}" @blur="(e)=>{clampBrushIntensity(e.target.value); editingBrushIntensity = false}")
+	slider(ref="sliderIntensity" :min="0" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom']" v-model="brushIntensity")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Size:  
+			span.range(v-if="!editingBrushSize" @click="()=>{editingBrushSize = true}") {{brushSize[0]==brushSize[1] ? brushSize[0] : brushSize[0] +'-'+ brushSize[1]}} px
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushSizeInput" suffix="px" :rules="[isNumber]" @change="clampBrushSize" @keyup.enter="(e)=>{clampBrushSize(e.target.value); editingBrushSize = false}" @blur="(e)=>{clampBrushSize(e.target.value); editingBrushSize = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureSize")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderSize" :min="0" :max="500" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushSize")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span {{activeToolName!='smear' ? "Wetness(Flow):" : "Strength:"}}  
+			span.range(v-if="!editingBrushStampOpacity" @click="()=>{editingBrushStampOpacity = true}") {{stampOpacity[0]==stampOpacity[1] ? stampOpacity[0] : stampOpacity[0] +'-'+ stampOpacity[1]}} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushStampOpacityInput" suffix="%" :rules="[isNumber]" @change="clampBrushStampOpacity" @keyup.enter="(e)=>{clampBrushStampOpacity(e.target.value); editingBrushStampOpacity = false}" @blur="(e)=>{clampBrushStampOpacity(e.target.value); editingBrushStampOpacity = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureFlow")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderFlow" :min="0" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="stampOpacity")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Gap:  
+			span.range(v-if="!editingBrushGap" @click="()=>{editingBrushGap = true}") {{brushGap[0]==brushGap[1] ? brushGap[0] : brushGap[0] +'-'+ brushGap[1]}} px
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushGapInput" suffix="px" :rules="[isNumber]" @change="clampBrushGap" @keyup.enter="(e)=>{clampBrushGap(e.target.value); editingBrushGap = false}" @blur="(e)=>{clampBrushGap(e.target.value); editingBrushGap = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureGap")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderGap" :min="0" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushGap")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Offset Jitter:  
+			span.range(v-if="!editingBrushOffset" @click="()=>{editingBrushOffset = true}") {{brushOffset[0]==brushOffset[1] ? brushOffset[0] : brushOffset[0] +'-'+ brushOffset[1]}} px
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushOffsetInput" suffix="px" :rules="[isNumber]" @change="clampBrushOffset" @keyup.enter="(e)=>{clampBrushOffset(e.target.value); editingBrushOffset = false}" @blur="(e)=>{clampBrushOffset(e.target.value); editingBrushOffset = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureOffset")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderOffset" :min="-100" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushOffset")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Align:  
+			span.range(v-if="!editingBrushAlign" @click="()=>{editingBrushAlign = true}") {{brushAlign[0]==brushAlign[1] ? brushAlign[0] : brushAlign[0] +'-'+ brushAlign[1]}} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushAlignInput" suffix="%" :rules="[isNumber]" @change="clampBrushAlign" @keyup.enter="(e)=>{clampBrushAlign(e.target.value); editingBrushAlign = false}" @blur="(e)=>{clampBrushAlign(e.target.value); editingBrushAlign = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureAlign")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderAlign" :min="0" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushAlign")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Rotation:  
+			span.range(v-if="!editingBrushRotation" @click="()=>{editingBrushRotation = true}") {{brushRotation[0]==brushRotation[1] ? brushRotation[0] : brushRotation[0] +'-'+ brushRotation[1]}} degrees
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushRotationInput" suffix="degrees" :rules="[isNumber]" @change="clampBrushRotation" @keyup.enter="(e)=>{clampBrushRotation(e.target.value); editingBrushRotation = false}" @blur="(e)=>{clampBrushRotation(e.target.value); editingBrushRotation = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureRotation")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderRotation" :min="-360" :max="360" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushRotation")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Hue Jitter  
+			span.range(v-if="!editingBrushHue" @click="()=>{editingBrushHue = true}") {{brushHue[0]==brushHue[1] ? brushHue[0] : brushHue[0] +'-'+ brushHue[1]}} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushHueInput" suffix="%" :rules="[isNumber]" @change="clampBrushHue" @keyup.enter="(e)=>{clampBrushHue(e.target.value); editingBrushHue = false}" @blur="(e)=>{clampBrushHue(e.target.value); editingBrushHue = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureHue")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderHue" :min="-100" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushHue")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Saturation Jitter  
+			span.range(v-if="!editingBrushSaturation" @click="()=>{editingBrushSaturation = true}") {{brushSaturation[0]==brushSaturation[1] ? brushSaturation[0] : brushSaturation[0] +'-'+ brushSaturation[1]}} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushSaturationInput" suffix="%" :rules="[isNumber]" @change="clampBrushSaturation" @keyup.enter="(e)=>{clampBrushSaturation(e.target.value); editingBrushSaturation = false}" @blur="(e)=>{clampBrushSaturation(e.target.value); editingBrushSaturation = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureSaturation")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderSaturation" :min="-100" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushSaturation")
+v-card.px-2.py-2
+	v-layout(row)
+		.label 
+			span Luminance Jitter  
+			span.range(v-if="!editingBrushLuminance" @click="()=>{editingBrushLuminance = true}") {{brushLuminance[0]==brushLuminance[1] ? brushLuminance[0] : brushLuminance[0] +'-'+ brushLuminance[1]}} %
+			span(v-else): v-text-field(sm1 :autofocus="true" name="brushLuminanceInput" suffix="%" :rules="[isNumber]" @change="clampBrushLuminance" @keyup.enter="(e)=>{clampBrushLuminance(e.target.value); editingBrushLuminance = false}" @blur="(e)=>{clampBrushLuminance(e.target.value); editingBrushLuminance = false}")
+		v-spacer
+		v-btn-toggle(v-model="pressureLuminance")
+			v-btn.title-toggle-btn(dark small flat :ripple="false")
+				span.tool-icon.icon-pen
+	slider(ref="sliderLuminance" :min="-100" :max="100" :interval="1" width="100%" tooltip="hover" :tooltipDir="['bottom', 'bottom']" v-model="brushLuminance")

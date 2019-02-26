@@ -2635,7 +2635,8 @@ export default {
 			})
 			checkFbo()
 
-			this.updateMesh = true;
+			// console.log(this.updateMesh);
+			// this.updateMesh = true;
 			this.drawCanvas()
 		},
 
@@ -2697,9 +2698,9 @@ export default {
 				const box = this.$refs.canvas.getBoundingClientRect();
 				this.lastMousePos = {
 					clientX: (e.clientX || e.touches[0].clientX),
-					clientY: (e.clientY || e.touches[0].clientY) - box.y,
-					x: (e.clientX || e.touches[0].clientX) - box.x,
-					y: this.VIEWER_HEIGHT - ((e.clientY || e.touches[0].clientY) - box.y),
+					clientY: (e.clientY || e.touches[0].clientY) - box.top,
+					x: (e.clientX || e.touches[0].clientX) - box.left,
+					y: this.VIEWER_HEIGHT - ((e.clientY || e.touches[0].clientY) - box.top),
 					force: 0
 					}
 				this.lastMousePos.x *= this.canvasWidthMult;
@@ -2735,9 +2736,9 @@ export default {
 
 				var pos = {
 					clientX: (e.clientX || (e.touches ? e.touches[0].clientX : e.clientX)),
-					clientY: (e.clientY || (e.touches ? e.touches[0].clientY: e.clientY)) - box.y,
-					x: (e.clientX || (e.touches ? e.touches[0].clientX : e.clientX)) - box.x,
-					y: this.VIEWER_HEIGHT - ((e.clientY || (e.touches ? e.touches[0].clientY : e.clientY) ) - box.y),
+					clientY: (e.clientY || (e.touches ? e.touches[0].clientY: e.clientY)) - box.top,
+					x: (e.clientX || (e.touches ? e.touches[0].clientX : e.clientX)) - box.left,
+					y: this.VIEWER_HEIGHT - ((e.clientY || (e.touches ? e.touches[0].clientY : e.clientY) ) - box.top),
 					force: force || 1.0
 				};
 				pos.x *= this.canvasWidthMult;
@@ -2784,9 +2785,9 @@ export default {
 					const box = this.$refs.canvas.getBoundingClientRect();
 					var pos = {
 						clientX: (event.clientX || event.touches[0].clientX),
-						clientY: (event.clientY || event.touches[0].clientY) - box.y,
-						x: event.clientX - box.x,
-						y: this.VIEWER_HEIGHT - (event.clientY - box.y),
+						clientY: (event.clientY || event.touches[0].clientY) - box.top,
+						x: event.clientX - box.left,
+						y: this.VIEWER_HEIGHT - (event.clientY - box.top),
 						force: 0
 					}
 					pos.x *= this.canvasWidthMult;

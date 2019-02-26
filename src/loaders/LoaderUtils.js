@@ -4,9 +4,17 @@
 
 var LoaderUtils = {
 
-	decodeText: function ( array ) {
+	decodeText: function ( array ) 
+	{
+		// this is a fix for IE Edge
+		if (array instanceof ArrayBuffer)
+		{
+			array  = new Uint8Array(array);
+		}
 
-		if ( typeof TextDecoder !== 'undefined' ) {
+
+		if ( typeof TextDecoder !== 'undefined' ) 
+		{
 
 			return new TextDecoder().decode( array );
 
@@ -17,7 +25,8 @@ var LoaderUtils = {
 
 		var s = '';
 
-		for ( var i = 0, il = array.length; i < il; i ++ ) {
+		for ( var i = 0, il = array.length; i < il; i ++ ) 
+		{
 
 			// Implicitly assumes little-endian.
 			s += String.fromCharCode( array[ i ] );
@@ -29,11 +38,12 @@ var LoaderUtils = {
 
 	},
 
-	extractUrlBase: function ( url ) {
+	extractUrlBase: function ( url ) 
+	{
 
 		var parts = url.split( '/' );
 
-		if ( parts.length === 1 ) return './';
+		if ( (parts.length) === 1 ) return './';
 
 		parts.pop();
 

@@ -193,6 +193,8 @@ function parseFbxFile(data)
 				{
 					// log(scene);
 
+					// if (typeof this.updateMesh!='function')	debugger;
+
 					// this.objMesh = scene.geometries.values().next().value;
 					this.updateMesh()
 						.then(()=>{

@@ -1,8 +1,9 @@
 # PaintGL
 PaintGL, a realtime PBR 3D painting web-app with built-in support for pressure-sensitive input (ie wacom tablets).  
 Written on the spring of 2018 using [regl](https://github.com/regl-project/regl) as an expolaration of the limits of webgl (1) on desktop devices.  
-It was not designed (or tested) for mobile devices, so it _might_ work on high-end tablets but don't count on it.
-(the source [big-pile of mess] was never intended to be made open-source as this was a personal test)
+It was not designed (or tested) for mobile devices, so it _might_ work on high-end tablets but don't count on it.  
+
+(the source [big-pile of mess] was originally *not* intended to be made open-source as this was a personal test)
 
 [**Live demo page here**](http://www.nassosyian.net/webgl/paintgl/)  
 
